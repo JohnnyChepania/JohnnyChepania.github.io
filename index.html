@@ -3,17 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ClientRadar — свежие вакансии из Telegram с контактом заказчика</title>
-  <meta name="description" content="ClientRadar собирает свежие вакансии из Telegram по 15 нишам и присылает их в бота. Прямой контакт заказчика. 48 часов бесплатно, без карты.">
-  <meta name="keywords" content="вакансии telegram, фриланс вакансии, видеомонтаж вакансии, smm вакансии, clientradar">
+  <title>ClientRadar — свежие вакансии в Telegram для фрилансеров</title>
+  <meta name="description" content="Ищете заказы в Telegram? ClientRadar собирает свежие вакансии по 15 нишам и присылает их в бота — с контактом заказчика. 48 часов бесплатно, без карты.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="ClientRadar">
   <link rel="canonical" href="https://johnnychepania.github.io/clientradar/">
-  <meta property="og:title" content="ClientRadar — свежие вакансии из Telegram">
-  <meta property="og:description" content="15 ниш. Прямой контакт заказчика. 48 часов бесплатно.">
-  <meta property="og:url" content="https://johnnychepania.github.io/clientradar/">
-  <meta property="og:image" content="https://johnnychepania.github.io/clientradar/logo.png">
-  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="ru" href="https://johnnychepania.github.io/clientradar/">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="https://johnnychepania.github.io/clientradar/logo.png" type="image/png" sizes="280x280">
+  <link rel="apple-touch-icon" href="https://johnnychepania.github.io/clientradar/logo.png">
   <meta name="theme-color" content="#101014">
-  <link rel="icon" href="logo.png" type="image/png">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="ClientRadar">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ClientRadar — свежие вакансии в Telegram для фрилансеров">
+  <meta property="og:description" content="Свежие вакансии и заказы из Telegram по 15 нишам. Контакт заказчика в карточке. 48 часов бесплатно.">
+  <meta property="og:url" content="https://johnnychepania.github.io/clientradar/">
+  <meta property="og:image" content="https://johnnychepania.github.io/clientradar/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ClientRadar — свежие вакансии из Telegram с контактом заказчика">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ClientRadar — свежие вакансии в Telegram для фрилансеров">
+  <meta name="twitter:description" content="Свежие вакансии и заказы из Telegram по 15 нишам. Контакт заказчика. 48 часов бесплатно.">
+  <meta name="twitter:image" content="https://johnnychepania.github.io/clientradar/og.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://johnnychepania.github.io/clientradar/#org",
+        "name": "ClientRadar",
+        "url": "https://johnnychepania.github.io/clientradar/",
+        "logo": "https://johnnychepania.github.io/clientradar/logo.png",
+        "sameAs": ["https://t.me/clientradar_jobs_bot"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://johnnychepania.github.io/clientradar/#website",
+        "url": "https://johnnychepania.github.io/clientradar/",
+        "name": "ClientRadar",
+        "inLanguage": "ru",
+        "publisher": {"@id": "https://johnnychepania.github.io/clientradar/#org"}
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://johnnychepania.github.io/clientradar/#app",
+        "name": "ClientRadar",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Telegram",
+        "inLanguage": "ru",
+        "description": "Сервис поиска свежих вакансий и заказов из Telegram для фрилансеров. Фильтрация по нишам и контакт заказчика в карточке.",
+        "url": "https://johnnychepania.github.io/clientradar/",
+        "isAccessibleForFree": true
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #101014;
@@ -24,8 +72,18 @@
       --line: rgba(255, 255, 255, 0.08);
       --card: #1a1a20;
       --card-hover: #22222a;
-      --bot: https://t.me/clientradar_jobs_bot;
     }
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 8px;
+      background: var(--yellow);
+      color: var(--yellow-ink);
+      padding: 8px 14px;
+      border-radius: 8px;
+      z-index: 100;
+    }
+    .skip:focus { left: 12px; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -253,6 +311,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
+      list-style: none;
     }
     .chip {
       padding: 16px 14px;
@@ -374,10 +433,11 @@
   </style>
 </head>
 <body>
+  <a class="skip" href="#top">К содержанию</a>
   <header class="top">
     <div class="top-inner">
       <a class="brand" href="#top">
-        <img src="logo.png" alt="ClientRadar">
+        <img src="logo.png" width="36" height="36" alt="Логотип ClientRadar">
         ClientRadar
       </a>
       <nav class="links" aria-label="Разделы">
@@ -386,7 +446,7 @@
         <a href="#plans">Тарифы</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="hdr-cta" href="https://t.me/clientradar_jobs_bot">Перейти в бота</a>
+      <a class="hdr-cta" href="https://t.me/clientradar_jobs_bot" rel="noopener">Перейти в бота</a>
       <button class="menu-btn" type="button" aria-label="Меню" id="menuBtn">☰</button>
     </div>
     <nav class="mobile-nav" id="mobileNav">
@@ -394,7 +454,7 @@
       <a href="#niches">Ниши</a>
       <a href="#plans">Тарифы</a>
       <a href="#faq">FAQ</a>
-      <a class="hdr-cta" href="https://t.me/clientradar_jobs_bot">Перейти в бота</a>
+      <a class="hdr-cta" href="https://t.me/clientradar_jobs_bot" rel="noopener">Перейти в бота</a>
     </nav>
   </header>
 
@@ -402,10 +462,10 @@
     <section class="hero">
       <h1>Свежие вакансии из Telegram — сразу с <em>контактом заказчика</em>.</h1>
       <p class="lead">
-        ClientRadar собирает свежие вакансии из Telegram по вашим нишам и присылает их прямо в бота. Без общего спама и бесконечного поиска по чатам.
+        ClientRadar — сервис поиска свежих вакансий и заказов в Telegram для фрилансеров. Собираем объявления по вашим нишам и присылаем их в бота. Без общего спама и бесконечного поиска по чатам.
       </p>
       <div class="cta-row">
-        <a class="btn-main" href="https://t.me/clientradar_jobs_bot">Перейти в бота</a>
+        <a class="btn-main" href="https://t.me/clientradar_jobs_bot" rel="noopener">Перейти в бота</a>
         <a class="btn-ghost" href="#how">Как это работает</a>
       </div>
       <p class="trial-note">48 часов бесплатно. Без привязки карты.</p>
@@ -457,25 +517,25 @@
     </section>
 
     <section class="block" id="niches">
-      <h2>Ниши</h2>
-      <p class="sub">15 направлений — те же категории, что в боте ClientRadar.</p>
-      <div class="chips">
-        <div class="chip"><span class="ico">🎨</span> Дизайн</div>
-        <div class="chip"><span class="ico">🎬</span> Видеомонтаж</div>
-        <div class="chip"><span class="ico">📱</span> SMM</div>
-        <div class="chip"><span class="ico">📺</span> YouTube</div>
-        <div class="chip"><span class="ico">🔎</span> SEO</div>
-        <div class="chip"><span class="ico">🎞</span> Reels и сторис</div>
-        <div class="chip"><span class="ico">🎯</span> Таргет</div>
-        <div class="chip"><span class="ico">🤖</span> Заказы по AI</div>
-        <div class="chip"><span class="ico">✍️</span> Копирайтинг</div>
-        <div class="chip"><span class="ico">📝</span> Сценаристы</div>
-        <div class="chip"><span class="ico">👨‍💼</span> Ассистент</div>
-        <div class="chip"><span class="ico">📸</span> UGC</div>
-        <div class="chip"><span class="ico">🌐</span> Веб-разработка</div>
-        <div class="chip"><span class="ico">💻</span> Разработка ПО</div>
-        <div class="chip"><span class="ico">🖥</span> Тех. специалисты</div>
-      </div>
+      <h2>Вакансии по нишам</h2>
+      <p class="sub">15 направлений для фрилансеров — те же категории, что в боте ClientRadar. Можно выбрать несколько.</p>
+      <ul class="chips">
+        <li class="chip"><span class="ico" aria-hidden="true">🎨</span> Дизайн</li>
+        <li class="chip"><span class="ico" aria-hidden="true">🎬</span> Видеомонтаж</li>
+        <li class="chip"><span class="ico" aria-hidden="true">📱</span> SMM</li>
+        <li class="chip"><span class="ico" aria-hidden="true">📺</span> YouTube</li>
+        <li class="chip"><span class="ico" aria-hidden="true">🔎</span> SEO</li>
+        <li class="chip"><span class="ico" aria-hidden="true">🎞</span> Reels и сторис</li>
+        <li class="chip"><span class="ico" aria-hidden="true">🎯</span> Таргет</li>
+        <li class="chip"><span class="ico" aria-hidden="true">🤖</span> Заказы по AI</li>
+        <li class="chip"><span class="ico" aria-hidden="true">✍️</span> Копирайтинг</li>
+        <li class="chip"><span class="ico" aria-hidden="true">📝</span> Сценаристы</li>
+        <li class="chip"><span class="ico" aria-hidden="true">👨‍💼</span> Ассистент</li>
+        <li class="chip"><span class="ico" aria-hidden="true">📸</span> UGC</li>
+        <li class="chip"><span class="ico" aria-hidden="true">🌐</span> Веб-разработка</li>
+        <li class="chip"><span class="ico" aria-hidden="true">💻</span> Разработка ПО</li>
+        <li class="chip"><span class="ico" aria-hidden="true">🖥</span> Тех. специалисты</li>
+      </ul>
     </section>
 
     <section class="block" id="plans">
@@ -500,13 +560,13 @@
         </article>
       </div>
       <div class="center-cta">
-        <a class="btn-main" href="https://t.me/clientradar_jobs_bot">Перейти в бота</a>
+        <a class="btn-main" href="https://t.me/clientradar_jobs_bot" rel="noopener">Перейти в бота</a>
       </div>
     </section>
 
     <section class="block" id="faq">
-      <h2>FAQ</h2>
-      <p class="sub">Коротко о доступе, нишах и оплате.</p>
+      <h2>Частые вопросы о вакансиях в Telegram</h2>
+      <p class="sub">Коротко о доступе, нишах, контакте заказчика и оплате.</p>
       <div class="faq">
         <details class="qa">
           <summary>Что входит в бесплатный период?</summary>
@@ -534,13 +594,13 @@
     <section class="final">
       <h2>Готовы перестать искать заказы вручную?</h2>
       <p>Перейдите в ClientRadar и начните получать свежие вакансии из Telegram.</p>
-      <a class="btn-main" href="https://t.me/clientradar_jobs_bot">Перейти в бота</a>
+      <a class="btn-main" href="https://t.me/clientradar_jobs_bot" rel="noopener">Перейти в бота</a>
     </section>
   </main>
 
   <footer class="foot wrap">
-    <span>ClientRadar · Свежие вакансии из Telegram</span>
-    <a href="https://t.me/clientradar_jobs_bot">@clientradar_jobs_bot</a>
+    <span>ClientRadar · свежие вакансии и заказы из Telegram для фрилансеров</span>
+    <a href="https://t.me/clientradar_jobs_bot" rel="noopener" rel="noopener">Telegram-бот @clientradar_jobs_bot</a>
   </footer>
 
   <script>

@@ -1,0 +1,19 @@
+{
+  "name": "ClientRadar — вакансии в Telegram",
+  "short_name": "ClientRadar",
+  "description": "Свежие вакансии и заказы из Telegram для фрилансеров, с контактом заказчика.",
+  "start_url": "/clientradar/",
+  "scope": "/clientradar/",
+  "display": "browser",
+  "lang": "ru",
+  "background_color": "#101014",
+  "theme_color": "#101014",
+  "icons": [
+    {
+      "src": "/clientradar/logo.png",
+      "sizes": "280x280",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
