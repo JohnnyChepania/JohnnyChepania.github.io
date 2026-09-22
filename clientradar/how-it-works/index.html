@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang='ru'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Как работает ClientRadar — поиск вакансий в Telegram</title><meta name='description' content='Как бот ClientRadar собирает свежие фриланс-заказы из Telegram-каналов: три шага, 15 ниш, контакт заказчика в карточке. 48 часов бесплатно.'><meta name='robots' content='index, follow'><link rel='canonical' href='https://johnnychepania.github.io/clientradar/how-it-works/'><link rel='icon' href='https://johnnychepania.github.io/clientradar/logo.png' type='image/png'><meta property='og:locale' content='ru_RU'><meta property='og:site_name' content='ClientRadar'><meta property='og:type' content='website'><meta property='og:title' content='Как работает ClientRadar — поиск вакансий в Telegram'><meta property='og:description' content='Как бот ClientRadar собирает свежие фриланс-заказы из Telegram-каналов: три шага, 15 ниш, контакт заказчика в карточке. 48 часов бесплатно.'><meta property='og:url' content='https://johnnychepania.github.io/clientradar/how-it-works/'><meta property='og:image' content='https://johnnychepania.github.io/clientradar/og.png'><meta name='twitter:card' content='summary_large_image'><style>* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Segoe UI", system-ui, sans-serif; background: #101014; color: #f4f1ea; min-height: 100dvh; }
+a { color: inherit; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+header.top { position: sticky; top: 0; z-index: 40; background: rgba(16,16,20,0.85); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
+.top-inner { max-width: 1120px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.03em; font-size: 17px; text-decoration: none; flex-shrink: 0; }
+.brand img { width: 36px; height: 36px; border-radius: 50%; }
+nav.links { display: flex; gap: 6px; margin-left: auto; }
+nav.links a { text-decoration: none; color: #b7b3a8; font-size: 14px; padding: 8px 12px; border-radius: 999px; }
+nav.links a:hover { color: #f4f1ea; background: rgba(255,255,255,0.04); }
+.hdr-cta { background: #ffd400; color: #16140c; font-weight: 700; font-size: 14px; padding: 11px 18px; border-radius: 999px; text-decoration: none; white-space: nowrap; }
+.hero { padding: 64px 0 48px; text-align: center; }
+.hero h1 { font-size: 34px; letter-spacing: -0.03em; margin-bottom: 16px; }
+.hero p { color: #b7b3a8; font-size: 17px; line-height: 1.65; max-width: 660px; margin: 0 auto 24px; }
+.chip-row { margin-bottom: 28px; }
+.chip-hero { display: inline-block; background: #1a1a20; border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; padding: 8px 16px; margin: 4px; font-size: 14px; color: #b7b3a8; }
+.btn-main { display: inline-block; background: #ffd400; color: #16140c; font-weight: 700; font-size: 16px; padding: 14px 28px; border-radius: 999px; text-decoration: none; }
+.btn-ghost { display: inline-block; border: 1px solid rgba(255,255,255,0.15); color: #f4f1ea; font-size: 15px; padding: 13px 24px; border-radius: 999px; text-decoration: none; margin-left: 12px; }
+.section { padding: 44px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+.section h2 { font-size: 24px; margin-bottom: 14px; letter-spacing: -0.02em; }
+.section p { color: #b7b3a8; line-height: 1.7; margin-bottom: 12px; font-size: 16px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin-top: 24px; }
+.card { background: #1a1a20; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; }
+.card h3 { font-size: 17px; margin-bottom: 8px; }
+.card p { margin: 0; font-size: 14px; }
+.related { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin-top: 20px; }
+.rel-card { background: #1a1a20; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; text-decoration: none; font-size: 15px; color: #f4f1ea; }
+.rel-card:hover { background: #22222a; }
+.steps { counter-reset: step; margin-top: 20px; }
+.step { position: relative; background: #1a1a20; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px 18px 18px 56px; margin-bottom: 12px; color: #b7b3a8; line-height: 1.6; }
+.step::before { counter-increment: step; content: counter(step); position: absolute; left: 18px; top: 16px; width: 26px; height: 26px; border-radius: 50%; background: #ffd400; color: #16140c; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+footer.foot { padding: 32px 20px; text-align: center; color: #b7b3a8; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
+footer.foot a { color: #ffd400; text-decoration: none; margin-left: 8px; }
+</style></head><body><header class='top'><div class='top-inner'><a class='brand' href='https://johnnychepania.github.io/clientradar/'><img src='https://johnnychepania.github.io/clientradar/logo.png' alt='ClientRadar' width='36' height='36'><span>ClientRadar</span></a><nav class='links'><a href='https://johnnychepania.github.io/clientradar/'>Главная</a><a href='https://johnnychepania.github.io/clientradar/niches/'>Ниши</a><a href='https://johnnychepania.github.io/clientradar/how-it-works/'>Как работает</a><a href='https://johnnychepania.github.io/clientradar/sources/'>Источники</a></nav><a class='hdr-cta' href='https://t.me/clientradar_jobs_bot' rel='noopener'>Перейти в бота</a></div></header><main class='wrap'><section class='hero'><h1>Как ClientRadar находит вакансии в Telegram</h1><p>ClientRadar — Telegram-бот, который сам мониторит десятки каналов и чатов с фриланс-заказами, отбирает релевантные объявления и присылает их вам карточкой. Работает в три шага.</p><a class='btn-main' href='https://t.me/clientradar_jobs_bot' rel='noopener'>Перейти в бота</a></section><section class='section'><h2>Три шага</h2><div class='steps'><div class='step'>Открываете бота @clientradar_jobs_bot и выбираете ниши: дизайн, видеомонтаж, SMM, тексты, разработка — всего 15 направлений. Можно несколько сразу.</div><div class='step'>Парсер круглосуточно следит за Telegram-каналами с заказами, фильтрует объявления по вашим нишам и убирает нерелевантный шум.</div><div class='step'>Свежая вакансия приходит вам в бот карточкой: задача, бюджет, контакт заказчика. Пишете заказчику сразу — без поиска контактов вручную.</div></div></section><section class='section'><h2>Сколько это стоит</h2><p>Первые 48 часов — бесплатно, без привязки карты. Дальше: 2 недели — 150 Telegram Stars, 1 месяц — 250 Stars, 3 месяца — 600 Stars. Оплата внутри Telegram.</p></section></main><footer class='foot wrap'><span>ClientRadar · свежие вакансии и заказы из Telegram для фрилансеров</span> <a href='https://t.me/clientradar_jobs_bot' rel='noopener'>Telegram-бот @clientradar_jobs_bot</a></footer></body></html>
